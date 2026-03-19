@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Allpacko Onboarding Prototype — Design Review</title>
+<title>Validator 3000: Allpacko</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -621,6 +621,12 @@
     padding: 48px 24px 0;
   }
 
+  .wt-content .slide-icon {
+    height: 200px;
+    display: flex;
+    align-items: center;
+  }
+
   .wt-title {
     color: #fff;
     font-size: 15px;
@@ -1038,10 +1044,13 @@
     white-space: pre;
     line-height: 1.3;
     text-align: left;
-    margin-bottom: 16px;
-    height: 130px;
+    margin-bottom: 48px;
+  }
+
+  #carousel-track .slide-icon {
+    height: 140px;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
   }
 
   .slide-title {
@@ -2056,12 +2065,11 @@
   <div class="screen" id="screen-home" style="padding-bottom:60px">
 
     <div class="home-header">
-      <div class="home-title" id="home-family-name">My Family</div>
-      <button class="settings-btn">[settings]</button>
+      <div class="home-title" id="home-family-name">Bundles</div>
     </div>
 
     <div style="flex:1; overflow-y:auto; display:flex; flex-direction:column;">
-      <div style="color:#666; font-size:11px; margin-bottom:16px;" id="home-members-line">You</div>
+      <div style="color:#666; font-size:11px; margin-bottom:16px; display:none;" id="home-members-line">You</div>
 
       <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 20px;">
         <div class="slide-icon" style="margin-bottom:32px; color:#444;">
@@ -2075,15 +2083,15 @@
  │                    │
  └────────────────────┘</div>
         <div style="color:#888; font-size:13px; text-align:center; margin-bottom:6px;">No bundles yet</div>
-        <div style="color:#444; font-size:12px; text-align:center; line-height:1.5; max-width:260px; margin-bottom:24px;">Create your first reusable packing list — you'll add it to every trip.</div>
+        <div style="color:#444; font-size:12px; text-align:center; line-height:1.5; max-width:260px; margin-bottom:24px;">Create your first reusable packing list — pack once, never start from scratch again.</div>
         <div class="primary-btn" style="width:auto; padding:12px 32px;">Create your first bundle</div>
       </div>
     </div>
 
     <div class="tab-bar">
-      <button class="tab">[Trips]</button>
-      <button class="tab active">[Bundles]</button>
-      <button class="tab">[Family]</button>
+      <button class="tab">Trips</button>
+      <button class="tab active">Bundles</button>
+      <button class="tab">Family</button>
     </div>
   </div>
 </div>
@@ -2201,7 +2209,7 @@
 
     if (id === 'screen-home') {
       const name = enteredName || 'My';
-      document.getElementById('home-family-name').textContent = name + "'s Family";
+      document.getElementById('home-family-name').textContent = 'Bundles';
       const allNames = [enteredName || 'You', ...members.map(m => m.name)];
       document.getElementById('home-members-line').textContent = allNames.join(' · ');
     }
