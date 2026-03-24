@@ -1977,7 +1977,7 @@
     <div style="padding:0 24px;">
       <div style="color:#888; font-size:12px; text-align:center; margin-bottom:8px;">Continue with phone number</div>
       <div class="input-row" style="margin-top:0;">
-        <input class="ascii-input" id="phone-input" type="tel" placeholder="+1 (555) 000-0000" value="">
+        <input class="ascii-input" id="phone-input" type="tel" placeholder="+1 (555) 000-0000" value="" onkeydown="if(event.key==='Enter'){event.preventDefault();goTo('screen-otp')}">
         <button type="button" class="arrow-btn" onclick="goTo('screen-otp')">&#8594;</button>
       </div>
     </div>
@@ -5241,6 +5241,10 @@
   renderPkBundleList();
   renderPkTripPacking();
   renderPkFamilyMembers();
+
+  // Force auth screen on fresh load
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen-auth').classList.add('active');
 </script>
 
 </body>
